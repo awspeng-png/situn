@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>西屯國小 × 巴西教育聯盟 | Situn Elementary School</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --green-deep:#1f4d33;
+    --green:#2d6a4f;
+    --green-soft:#73a987;
+    --green-mist:#e6efe7;
+    --yellow:#f3d03e;
+    --yellow-soft:#fce896;
+    --cream:#fbf7ee;
+    --paper:#fffdf6;
+    --ink:#16241a;
+    --ink-soft:#3a4a3e;
+    --coral:#e07856;
+    --line:rgba(31,77,51,.18);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Plus Jakarta Sans','Noto Sans TC',system-ui,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  /* Language toggle visibility */
+  body[data-lang="zh"] .l-en,
+  body[data-lang="zh"] .l-pt{display:none !important;}
+  body[data-lang="en"] .l-zh,
+  body[data-lang="en"] .l-pt{display:none !important;}
+  body[data-lang="pt"] .l-zh,
+  body[data-lang="pt"] .l-en{display:none !important;}
+
+  /* Apply Chinese font when in Chinese mode */
+  body[data-lang="zh"]{font-family:'Noto Sans TC','Plus Jakarta Sans',system-ui,sans-serif;}
+  body[data-lang="zh"] h1,
+  body[data-lang="zh"] h2,
+  body[data-lang="zh"] h3{font-family:'Noto Serif TC',serif;letter-spacing:.02em;}
+
+  body[data-lang="en"] h1,
+  body[data-lang="en"] h2,
+  body[data-lang="en"] h3,
+  body[data-lang="pt"] h1,
+  body[data-lang="pt"] h2,
+  body[data-lang="pt"] h3{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"opsz" 144, "SOFT" 50;
+    letter-spacing:-0.01em;
+  }
+
+  /* ---------- Top Nav ---------- */
+  nav.topbar{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(251,247,238,.85);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:1280px;margin:0 auto;
+    padding:14px 22px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;color:var(--green-deep);font-weight:700;font-size:.95rem;}
+  .brand-mark{
+    width:32px;height:32px;border-radius:50%;
+    background:var(--green-deep);color:var(--yellow);
+    display:grid;place-items:center;
+    font-family:'Noto Serif TC',serif;font-weight:900;font-size:1rem;
+  }
+  .brand small{display:block;font-weight:500;font-size:.72rem;color:var(--ink-soft);letter-spacing:.06em;}
+  .lang-switcher{display:flex;gap:4px;background:var(--green-mist);border-radius:999px;padding:4px;}
+  .lang-switcher button{
+    border:0;background:transparent;
+    padding:7px 14px;border-radius:999px;
+    font-family:inherit;font-weight:600;font-size:.82rem;
+    color:var(--green-deep);cursor:pointer;
+    transition:all .2s ease;
+    letter-spacing:.02em;
+  }
+  .lang-switcher button.active{background:var(--green-deep);color:var(--yellow);}
+  .lang-switcher button:hover:not(.active){background:rgba(31,77,51,.08);}
+
+  /* ---------- Sections ---------- */
+  main{padding-top:62px;}
+  section{padding:88px 22px;position:relative;}
+  .wrap{max-width:1180px;margin:0 auto;}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.72rem;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;
+    color:var(--green);
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--green);}
+
+  h1{font-size:clamp(2.2rem,5.6vw,4.4rem);line-height:1.05;font-weight:600;color:var(--green-deep);}
+  h2{font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.15;font-weight:600;color:var(--green-deep);margin-bottom:.4em;}
+  h3{font-size:1.18rem;font-weight:700;color:var(--green-deep);margin-bottom:.5em;}
+  p{color:var(--ink-soft);font-size:1rem;}
+  p + p{margin-top:.7em;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;
+    padding:120px 22px 80px;
+    background:
+      radial-gradient(1100px 600px at 90% -10%, var(--yellow-soft) 0%, transparent 55%),
+      radial-gradient(900px 700px at -10% 110%, var(--green-mist) 0%, transparent 60%),
+      var(--cream);
+    display:flex;align-items:center;position:relative;overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;
+    max-width:1180px;margin:0 auto;width:100%;
+  }
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:30px;}}
+
+  .hero-tag{font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;color:var(--green);margin-bottom:6px;}
+  body[data-lang="zh"] .hero-tag{font-family:'Noto Serif TC',serif;font-style:normal;}
+
+  .hero h1{margin-bottom:24px;}
+  .hero h1 .accent{color:var(--green);position:relative;display:inline-block;}
+  .hero h1 .accent::after{
+    content:"";position:absolute;bottom:.08em;left:-2%;width:104%;height:.34em;
+    background:var(--yellow);z-index:-1;border-radius:4px;
+  }
+  .hero-sub{font-size:1.1rem;color:var(--ink-soft);max-width:30em;margin-bottom:32px;}
+
+  .meta-pills{display:flex;flex-wrap:wrap;gap:10px;}
+  .pill{
+    background:white;border:1px solid var(--line);
+    padding:10px 18px;border-radius:999px;
+    font-size:.84rem;font-weight:600;color:var(--green-deep);
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--yellow);}
+
+  /* Hero visual */
+  .hero-visual{
+    position:relative;aspect-ratio:1/1;max-width:420px;width:100%;margin:0 auto;
+  }
+  .logo-circle{
+    position:absolute;inset:0;
+    background:var(--green-deep);
+    border-radius:50%;
+    display:grid;place-items:center;
+    box-shadow:0 30px 80px -20px rgba(31,77,51,.5);
+  }
+  .logo-circle .big-char{
+    font-family:'Noto Serif TC',serif;
+    font-size:14rem;font-weight:900;
+    color:var(--yellow);
+    line-height:1;
+  }
+  .logo-circle small{
+    position:absolute;bottom:18%;color:white;font-size:.78rem;letter-spacing:.3em;font-weight:600;
+  }
+  .float-tag{
+    position:absolute;background:white;
+    padding:10px 16px;border-radius:14px;
+    box-shadow:0 12px 40px -10px rgba(0,0,0,.15);
+    font-size:.82rem;font-weight:700;color:var(--green-deep);
+    display:flex;align-items:center;gap:8px;
+  }
+  .float-tag.top-right{top:-6%;right:-6%;transform:rotate(6deg);}
+  .float-tag.bot-left{bottom:0%;left:-10%;transform:rotate(-4deg);background:var(--yellow);}
+  .float-tag::before{content:"✦";color:var(--yellow);font-size:1rem;}
+  .float-tag.bot-left::before{color:var(--green-deep);}
+
+  /* ---------- AGENDA TABLE ---------- */
+  .agenda{background:var(--paper);}
+  .agenda-table{
+    background:white;border-radius:24px;overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 20px 50px -30px rgba(31,77,51,.25);
+  }
+  .agenda-row{
+    display:grid;grid-template-columns:160px 1fr 180px;gap:24px;
+    padding:22px 28px;align-items:center;
+    border-bottom:1px solid var(--line);
+  }
+  .agenda-row:last-child{border-bottom:0;}
+  .agenda-row.header{background:var(--green-deep);color:var(--yellow);font-weight:700;letter-spacing:.06em;font-size:.85rem;text-transform:uppercase;}
+  .agenda-row.header > *{color:var(--yellow);}
+  .agenda-time{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--green-deep);}
+  body[data-lang="zh"] .agenda-time{font-family:'Noto Serif TC',serif;}
+  .agenda-act{font-weight:500;color:var(--ink);}
+  .agenda-loc{color:var(--ink-soft);font-size:.92rem;text-align:right;}
+  @media (max-width:720px){
+    .agenda-row{grid-template-columns:1fr;gap:6px;padding:18px 20px;}
+    .agenda-loc{text-align:left;}
+    .agenda-row.header{display:none;}
+  }
+
+  /* ---------- INTRO STATS ---------- */
+  .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  @media (max-width:860px){.intro-grid{grid-template-columns:1fr;gap:40px;}}
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .stat{
+    background:white;border-radius:18px;padding:24px;
+    border:1px solid var(--line);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .stat:hover{transform:translateY(-4px);box-shadow:0 18px 40px -20px rgba(31,77,51,.25);}
+  .stat-num{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:700;color:var(--green-deep);line-height:1;}
+  body[data-lang="zh"] .stat-num{font-family:'Noto Serif TC',serif;}
+  .stat-label{font-size:.86rem;color:var(--ink-soft);margin-top:8px;font-weight:500;}
+
+  .org-diagram{
+    background:white;border-radius:24px;padding:32px;border:1px solid var(--line);
+    text-align:center;
+  }
+  .org-center{
+    width:90px;height:90px;border-radius:50%;
+    background:var(--green-deep);color:var(--yellow);
+    display:grid;place-items:center;
+    font-family:'Noto Serif TC',serif;font-weight:700;font-size:1.1rem;
+    margin:0 auto 22px;
+    box-shadow:0 14px 30px -10px rgba(31,77,51,.4);
+  }
+  .org-nodes{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+  @media(max-width:640px){.org-nodes{grid-template-columns:repeat(2,1fr);}}
+  .org-node{
+    background:var(--green-mist);color:var(--green-deep);
+    padding:14px 6px;border-radius:12px;font-weight:600;font-size:.82rem;
+  }
+
+  /* ---------- ENVIRONMENT ---------- */
+  .env{background:linear-gradient(180deg, var(--cream) 0%, var(--green-mist) 100%);}
+  .env-banner{
+    background:var(--green-deep);color:white;
+    border-radius:28px;padding:50px 44px;position:relative;overflow:hidden;
+  }
+  .env-banner::before{
+    content:"✦";position:absolute;top:30px;right:40px;
+    color:var(--yellow);font-size:3rem;
+  }
+  .env-banner h2{color:white;}
+  .env-banner h2 .hl{
+    background:var(--yellow);color:var(--green-deep);
+    padding:2px 14px;border-radius:8px;display:inline-block;
+  }
+  .env-banner p{color:rgba(255,255,255,.85);font-size:1.05rem;max-width:42em;margin-top:18px;}
+  .env-banner .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px;}
+  .env-banner .tags span{
+    background:rgba(255,255,255,.12);color:white;
+    padding:7px 14px;border-radius:999px;font-size:.84rem;
+    border:1px solid rgba(255,255,255,.18);
+  }
+
+  .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px;}
+  @media (max-width:860px){.features-grid{grid-template-columns:1fr;}}
+  .feature{
+    background:white;border-radius:20px;padding:28px;
+    border:1px solid var(--line);
+  }
+  .feature-icon{
+    width:48px;height:48px;border-radius:12px;
+    background:var(--yellow-soft);color:var(--green-deep);
+    display:grid;place-items:center;font-size:1.4rem;
+    margin-bottom:18px;
+  }
+
+  /* ---------- SEE & TURN ---------- */
+  .see-turn{background:var(--paper);}
+  .see-turn .wrap{text-align:center;}
+  .st-words{
+    display:flex;justify-content:center;align-items:center;gap:40px;margin:50px 0;
+    flex-wrap:wrap;
+  }
+  .st-word{
+    font-family:'Fraunces',serif;font-style:italic;
+    font-size:clamp(3rem,8vw,5.5rem);font-weight:600;
+    color:var(--green-deep);position:relative;line-height:1;
+  }
+  .st-word .sub{
+    display:block;font-family:'Noto Serif TC',serif;font-style:normal;
+    font-size:1rem;color:var(--ink-soft);font-weight:400;
+    letter-spacing:.3em;margin-top:6px;
+  }
+  body[data-lang="pt"] .st-word .sub,
+  body[data-lang="en"] .st-word .sub{font-family:'Plus Jakarta Sans',sans-serif;}
+  .st-amp{font-family:'Fraunces',serif;font-size:3rem;color:var(--yellow);}
+  .st-pair{display:grid;grid-template-columns:1fr 1fr;gap:30px;text-align:left;}
+  @media (max-width:760px){.st-pair{grid-template-columns:1fr;}}
+  .st-card{background:white;border-radius:20px;padding:30px;border:1px solid var(--line);}
+
+  /* ---------- PILLARS ---------- */
+  .pillars{background:var(--green-deep);color:white;}
+  .pillars h2,.pillars .eyebrow{color:var(--yellow);}
+  .pillars .eyebrow::before{background:var(--yellow);}
+  .pillars p{color:rgba(255,255,255,.78);}
+  .pillar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px;}
+  @media (max-width:860px){.pillar-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:480px){.pillar-grid{grid-template-columns:1fr;}}
+  .pillar{
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+    border-radius:20px;padding:28px 24px;
+    transition:all .3s ease;
+  }
+  .pillar:hover{background:rgba(243,208,62,.12);border-color:var(--yellow);}
+  .pillar-num{font-family:'Fraunces',serif;font-size:.85rem;color:var(--yellow);letter-spacing:.2em;font-weight:600;}
+  .pillar h3{color:white;margin:14px 0 4px;font-size:1.4rem;}
+  .pillar .sub{color:var(--yellow-soft);font-size:.85rem;font-weight:500;margin-bottom:14px;display:block;}
+  .pillar p{font-size:.92rem;color:rgba(255,255,255,.75);}
+
+  /* ---------- DEPARTMENTS ---------- */
+  .depts{background:var(--cream);}
+  .dept{
+    background:white;border-radius:24px;padding:36px;
+    border:1px solid var(--line);
+    margin-bottom:22px;
+    display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:start;
+  }
+  @media (max-width:760px){.dept{grid-template-columns:1fr;gap:18px;padding:28px;}}
+  .dept-head h3{font-size:1.5rem;color:var(--green-deep);margin-bottom:6px;}
+  .dept-head .en-name{font-family:'Fraunces',serif;font-style:italic;color:var(--ink-soft);font-size:.92rem;}
+  body[data-lang="zh"] .dept-head .en-name{font-family:'Noto Sans TC',sans-serif;font-style:normal;}
+  .dept-tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .dept-tag{
+    background:var(--green-mist);color:var(--green-deep);
+    padding:8px 14px;border-radius:10px;font-size:.85rem;font-weight:500;
+  }
+  .dept-tag.accent{background:var(--yellow);}
+
+  /* ---------- KINDERGARTEN ---------- */
+  .kg{background:linear-gradient(180deg, var(--green-mist) 0%, var(--cream) 30%);}
+  .kg-intro{
+    background:white;border-radius:24px;padding:36px;border:1px solid var(--line);
+    margin-bottom:30px;
+  }
+  .kg-areas{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+  @media (max-width:900px){.kg-areas{grid-template-columns:repeat(2,1fr);}}
+  .kg-area{
+    background:white;border:1px solid var(--line);
+    border-radius:18px;padding:22px 18px;text-align:center;
+    transition:all .3s ease;
+  }
+  .kg-area:hover{background:var(--yellow-soft);}
+  .kg-area-emoji{font-size:2rem;margin-bottom:10px;}
+  .kg-area h3{font-size:.98rem;margin-bottom:4px;color:var(--green-deep);}
+  .kg-area .en{font-family:'Fraunces',serif;font-style:italic;font-size:.78rem;color:var(--ink-soft);}
+  body[data-lang="zh"] .kg-area .en{font-family:'Noto Sans TC',sans-serif;font-style:normal;}
+
+  /* Learning corners */
+  .corners-header{text-align:center;margin-bottom:36px;}
+  .corners{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media (max-width:900px){.corners{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.corners{grid-template-columns:1fr;}}
+  .corner{
+    background:white;border-radius:20px;padding:26px;
+    border:1px solid var(--line);
+    position:relative;overflow:hidden;
+  }
+  .corner::before{
+    content:"";position:absolute;top:0;left:0;height:4px;width:60px;background:var(--yellow);border-radius:0 0 4px 0;
+  }
+  .corner h3{font-size:1.15rem;margin-bottom:14px;}
+  .corner ul{list-style:none;}
+  .corner li{
+    padding:6px 0;color:var(--ink-soft);font-size:.92rem;
+    border-bottom:1px dashed var(--line);
+  }
+  .corner li:last-child{border-bottom:0;}
+  .corner li::before{content:"◦  ";color:var(--yellow);font-weight:bold;}
+
+  /* STEAM */
+  .steam{background:var(--paper);}
+  .steam-petals{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:36px;
+  }
+  @media (max-width:760px){.steam-petals{grid-template-columns:repeat(2,1fr);}}
+  .petal{
+    aspect-ratio:1;border-radius:50%;
+    display:grid;place-items:center;text-align:center;
+    color:white;font-weight:700;padding:18px;
+    font-size:1rem;
+  }
+  .petal small{display:block;font-weight:500;font-size:.75rem;opacity:.85;margin-top:4px;font-style:italic;}
+  body[data-lang="zh"] .petal small{font-style:normal;}
+  .petal.s{background:#2d6a4f;}
+  .petal.t{background:#40916c;}
+  .petal.e{background:#52b788;}
+  .petal.a{background:var(--yellow);color:var(--green-deep);}
+  .petal.m{background:#1f4d33;}
+
+  /* SEL */
+  .sel{background:var(--green-mist);}
+  .sel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px;}
+  @media (max-width:640px){.sel-grid{grid-template-columns:1fr;}}
+  .sel-card{
+    background:white;border-radius:20px;padding:28px;border:1px solid var(--line);
+  }
+  .sel-card .num{
+    width:36px;height:36px;border-radius:50%;
+    background:var(--green-deep);color:var(--yellow);
+    display:grid;place-items:center;font-weight:700;
+    font-family:'Fraunces',serif;margin-bottom:14px;
+  }
+
+  /* ---------- THANK YOU ---------- */
+  .thanks{
+    background:var(--green-deep);color:white;text-align:center;
+    padding:120px 22px;
+    position:relative;overflow:hidden;
+  }
+  .thanks::before, .thanks::after{
+    content:"✦";position:absolute;font-size:5rem;color:var(--yellow);opacity:.3;
+  }
+  .thanks::before{top:50px;left:8%;}
+  .thanks::after{bottom:50px;right:8%;}
+  .thanks h2{color:white;font-size:clamp(2.2rem,5vw,4rem);margin-bottom:20px;}
+  .thanks .signature{
+    margin-top:40px;color:var(--yellow);
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;
+  }
+  body[data-lang="zh"] .thanks .signature{font-family:'Noto Serif TC',serif;font-style:normal;}
+
+  /* utility */
+  .text-soft{color:var(--ink-soft);}
+  .mt-sm{margin-top:14px;}
+  .mt-md{margin-top:24px;}
+  .mt-lg{margin-top:40px;}
+
+  /* List inside text blocks */
+  .text-list{list-style:none;margin-top:18px;}
+  .text-list li{
+    padding:10px 0 10px 26px;
+    position:relative;color:var(--ink-soft);
+    border-bottom:1px dashed var(--line);
+  }
+  .text-list li::before{
+    content:"✦";position:absolute;left:0;top:10px;
+    color:var(--yellow);font-size:.9rem;
+  }
+  .text-list li:last-child{border-bottom:0;}
+  .text-list li b{color:var(--ink);font-weight:600;}
+
+  /* Smooth fade-in */
+  section > * {animation:fadeUp .6s ease-out backwards;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+
+  /* footer */
+  footer{
+    background:var(--ink);color:rgba(255,255,255,.6);
+    padding:30px 22px;text-align:center;font-size:.82rem;
+  }
+  footer a{color:var(--yellow);text-decoration:none;}
+</style>
+</head>
+
+<body data-lang="zh">
+
+<!-- ============== TOP BAR ============== -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark">西</span>
+      <span>
+        <span class="l-zh">西屯國小</span>
+        <span class="l-en">Situn Elementary</span>
+        <span class="l-pt">Escola Situn</span>
+        <small>SEE &amp; TURN · 臺中 TAICHUNG</small>
+      </span>
+    </div>
+    <div class="lang-switcher" role="tablist">
+      <button data-set="zh" class="active">中文</button>
+      <button data-set="en">EN</button>
+      <button data-set="pt">PT-BR</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-tag">
+        <span class="l-zh">Welcome to SITUN ・ 歡迎蒞臨</span>
+        <span class="l-en">Welcome to SITUN</span>
+        <span class="l-pt">Sejam muito bem-vindos à SITUN</span>
+      </div>
+      <h1>
+        <span class="l-zh"><span class="accent">巴西教育聯盟</span><br>&amp; 惠文高中 蒞校參訪</span>
+        <span class="l-en"><span class="accent">Brazilian Education</span> Alliance &amp; Huiwen High School Campus Visit</span>
+        <span class="l-pt"><span class="accent">Aliança Educacional</span> Brasileira &amp; Colégio Huiwen — Visita à Escola</span>
+      </h1>
+      <p class="hero-sub">
+        <span class="l-zh">臺中市西屯區西屯國小　|　115.05.20　|　科技創新 × 在地人文 × 國際教育</span>
+        <span class="l-en">Situn Elementary School, Xitun District, Taichung City　|　20 May 2026　|　Tech innovation × Local culture × International education</span>
+        <span class="l-pt">Escola Primária Situn — Distrito de Xitun, Taichung　|　20 de maio de 2026　|　Inovação tecnológica × Cultura local × Educação internacional</span>
+      </p>
+      <div class="meta-pills">
+        <span class="pill">
+          <span class="l-zh">校長　彭偉峰　Alex Peng</span>
+          <span class="l-en">Principal: Alex Peng</span>
+          <span class="l-pt">Diretor: Alex Peng</span>
+        </span>
+        <span class="pill">
+          <span class="l-zh">國小部 45+6 班</span>
+          <span class="l-en">45+6 Elementary Classes</span>
+          <span class="l-pt">45+6 turmas do Fundamental I</span>
+        </span>
+        <span class="pill">
+          <span class="l-zh">幼兒園 3 班</span>
+          <span class="l-en">3 Kindergarten Classes</span>
+          <span class="l-pt">3 turmas da Educação Infantil</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="logo-circle">
+        <span class="big-char">西</span>
+        <small>SEE &amp; TURN</small>
+      </div>
+      <div class="float-tag top-right">
+        <span class="l-zh">綠茵之心</span>
+        <span class="l-en">Green Heart of the City</span>
+        <span class="l-pt">Coração verde da cidade</span>
+      </div>
+      <div class="float-tag bot-left">
+        <span class="l-zh">看見・實踐</span>
+        <span class="l-en">See &amp; Turn</span>
+        <span class="l-pt">Ver &amp; Agir</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== AGENDA ============== -->
+<section class="agenda" id="agenda">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span class="l-zh">參訪流程</span>
+      <span class="l-en">Visit Agenda</span>
+      <span class="l-pt">Programação da visita</span>
+    </div>
+    <h2>
+      <span class="l-zh">當天行程一覽</span>
+      <span class="l-en">Schedule for the Day</span>
+      <span class="l-pt">A programação completa do dia</span>
+    </h2>
+    <p style="max-width:38em;margin-bottom:30px;">
+      <span class="l-zh">我們為各位安排了一個輕鬆又充實的早晨，從報到到綜合座談，希望大家能完整地看見西屯的樣貌。</span>
+      <span class="l-en">A relaxed yet full morning—from arrival to the closing roundtable—so you can really get to know who we are at Situn.</span>
+      <span class="l-pt">Preparamos uma manhã tranquila e bem aproveitada, do recebimento à roda de conversa final, para vocês conhecerem a Situn de verdade.</span>
+    </p>
+
+    <div class="agenda-table">
+      <div class="agenda-row header">
+        <div>
+          <span class="l-zh">時間</span><span class="l-en">Time</span><span class="l-pt">Horário</span>
+        </div>
+        <div>
+          <span class="l-zh">活動內容</span><span class="l-en">Activity</span><span class="l-pt">Atividade</span>
+        </div>
+        <div>
+          <span class="l-zh">地點</span><span class="l-en">Location</span><span class="l-pt">Local</span>
+        </div>
+      </div>
+
+      <div class="agenda-row">
+        <div class="agenda-time">09:30–09:40</div>
+        <div class="agenda-act">
+          <span class="l-zh">報到</span>
+          <span class="l-en">Check-in &amp; Reception</span>
+          <span class="l-pt">Recepção e credenciamento</span>
+        </div>
+        <div class="agenda-loc">—</div>
+      </div>
+
+      <div class="agenda-row">
+        <div class="agenda-time">09:40–09:50</div>
+        <div class="agenda-act">
+          <span class="l-zh">貴賓致詞</span>
+          <span class="l-en">Welcome Remarks</span>
+          <span class="l-pt">Boas-vindas e palavras de abertura</span>
+        </div>
+        <div class="agenda-loc">
+          <span class="l-zh">校史室</span>
+          <span class="l-en">School History Room</span>
+          <span class="l-pt">Sala da história da escola</span>
+        </div>
+      </div>
+
+      <div class="agenda-row">
+        <div class="agenda-time">09:50–10:10</div>
+        <div class="agenda-act">
+          <span class="l-zh">校務簡介與課程分享</span>
+          <span class="l-en">School Overview &amp; Curriculum Sharing</span>
+          <span class="l-pt">Apresentação institucional e nosso currículo</span>
+        </div>
+        <div class="agenda-loc">—</div>
+      </div>
+
+      <div class="agenda-row">
+        <div class="agenda-time">10:10–10:50</div>
+        <div class="agenda-act">
+          <span class="l-zh">校園導覽與特色課程體驗</span>
+          <span class="l-en">Campus Tour &amp; Signature Curriculum Experience</span>
+          <span class="l-pt">Visita guiada pela escola e vivência dos nossos projetos</span>
+        </div>
+        <div class="agenda-loc">
+          <span class="l-zh">西大墩游藝館・校史室・美學館</span>
+          <span class="l-en">Dadun Arts Hall · History Room · Aesthetics Hall</span>
+          <span class="l-pt">Salão Dadun · Sala da história · Sala de estética</span>
+        </div>
+      </div>
+
+      <div class="agenda-row">
+        <div class="agenda-time">10:50–11:10</div>
+        <div class="agenda-act">
+          <span class="l-zh">幼兒園教學現場觀摩</span>
+          <span class="l-en">Kindergarten Classroom Observation</span>
+          <span class="l-pt">Observação de aulas na Educação Infantil</span>
+        </div>
+        <div class="agenda-loc">
+          <span class="l-zh">幼兒園</span>
+          <span class="l-en">Kindergarten</span>
+          <span class="l-pt">Educação Infantil</span>
+        </div>
+      </div>
+
+      <div class="agenda-row">
+        <div class="agenda-time">11:10–11:30</div>
+        <div class="agenda-act">
+          <span class="l-zh">綜合座談・課程交流・賦歸</span>
+          <span class="l-en">Roundtable Discussion · Curriculum Exchange · Farewell</span>
+          <span class="l-pt">Roda de conversa · Troca pedagógica · Despedida</span>
+        </div>
+        <div class="agenda-loc">
+          <span class="l-zh">校史室</span>
+          <span class="l-en">School History Room</span>
+          <span class="l-pt">Sala da história</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== INTRODUCTION ============== -->
+<section id="intro">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span class="l-zh">關於學校</span>
+      <span class="l-en">About the School</span>
+      <span class="l-pt">Sobre a escola</span>
+    </div>
+
+    <div class="intro-grid">
+      <div>
+        <h2>
+          <span class="l-zh">專業的教師團隊</span>
+          <span class="l-en">A Professional Teaching Team</span>
+          <span class="l-pt">Uma equipe docente que faz a diferença</span>
+        </h2>
+        <p>
+          <span class="l-zh">由校長帶領，我們的教師團隊兼具經驗與熱忱，國小部與幼兒園彼此合作，從學科教學到生活照顧，都希望給孩子最完整的支持。</span>
+          <span class="l-en">Led by the principal, our team combines experience with genuine passion. Elementary teachers and kindergarten educators work hand in hand to support each child—from academics to everyday care.</span>
+          <span class="l-pt">Com a liderança do diretor, nossa equipe une experiência e paixão de verdade. O Fundamental e a Educação Infantil trabalham juntinhos para apoiar cada criança — do conteúdo pedagógico ao cuidado do dia a dia.</span>
+        </p>
+
+        <div class="stat-grid mt-md">
+          <div class="stat">
+            <div class="stat-num">107</div>
+            <div class="stat-label">
+              <span class="l-zh">國小部教師</span>
+              <span class="l-en">Elementary teachers</span>
+              <span class="l-pt">Professores do Fundamental</span>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">6+3</div>
+            <div class="stat-label">
+              <span class="l-zh">幼兒園教師＋教保員</span>
+              <span class="l-en">Kindergarten teachers &amp; educare staff</span>
+              <span class="l-pt">Professoras e auxiliares da Infantil</span>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">45+6</div>
+            <div class="stat-label">
+              <span class="l-zh">國小部班級數</span>
+              <span class="l-en">Elementary classes</span>
+              <span class="l-pt">Turmas do Fundamental</span>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3</div>
+            <div class="stat-label">
+              <span class="l-zh">幼兒園班級數</span>
+              <span class="l-en">Kindergarten classes</span>
+              <span class="l-pt">Turmas da Infantil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="org-diagram">
+          <div class="org-center">
+            <span class="l-zh">校長</span>
+            <span class="l-en">Principal</span>
+            <span class="l-pt">Diretor</span>
+          </div>
+          <div class="org-nodes">
+            <div class="org-node">
+              <span class="l-zh">教務</span>
+              <span class="l-en">Academic</span>
+              <span class="l-pt">Pedagógico</span>
+            </div>
+            <div class="org-node">
+              <span class="l-zh">學務</span>
+              <span class="l-en">Student Affairs</span>
+              <span class="l-pt">Vida escolar</span>
+            </div>
+            <div class="org-node">
+              <span class="l-zh">總務</span>
+              <span class="l-en">General Affairs</span>
+              <span class="l-pt">Administração</span>
+            </div>
+            <div class="org-node">
+              <span class="l-zh">輔導</span>
+              <span class="l-en">Counseling</span>
+              <span class="l-pt">Orientação</span>
+            </div>
+            <div class="org-node">
+              <span class="l-zh">幼兒園</span>
+              <span class="l-en">Kindergarten</span>
+              <span class="l-pt">Ed. Infantil</span>
+            </div>
+          </div>
+          <p style="margin-top:22px;font-size:.85rem;">
+            <span class="l-zh">五個處室＋幼兒園，環繞著校長與孩子。</span>
+            <span class="l-en">Five divisions plus the kindergarten, all centered on the principal and the children.</span>
+            <span class="l-pt">Cinco coordenações e a Educação Infantil, sempre girando em torno do diretor e das crianças.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ENVIRONMENT ============== -->
+<section class="env">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span class="l-zh">學校環境</span>
+      <span class="l-en">Our Environment</span>
+      <span class="l-pt">Nosso ambiente</span>
+    </div>
+
+    <div class="env-banner">
+      <h2>
+        <span class="l-zh"><span class="hl">科技創新</span> × 在地人文</span>
+        <span class="l-en"><span class="hl">Tech Innovation</span> × Local Heritage</span>
+        <span class="l-pt"><span class="hl">Inovação tecnológica</span> × Cultura local</span>
+      </h2>
+      <p>
+        <span class="l-zh">我們位於臺中市逢甲夜市附近，校園占地寬廣、老樹林立，被稱為城市的「綠茵之心」。學習場域剛好坐落在新舊交會的區塊，把科技創新與在地人文，都化為國際教育的養分。</span>
+        <span class="l-en">We sit right next to Taichung's Fengjia Night Market, with a spacious campus dotted with old trees—locals call us "the green heart of the city." Our learning spaces stand at the meeting point of old and new, turning tech innovation and local culture into nourishment for international education.</span>
+        <span class="l-pt">A gente fica bem ao lado do Mercado Noturno de Fengjia, em Taichung, com um campus amplo e cheio de árvores antigas — o pessoal aqui chama a escola de "coração verde da cidade". Nosso espaço de aprendizagem fica justamente onde o antigo encontra o novo, e a gente transforma a inovação e a cultura local em alimento para a educação internacional.</span>
+      </p>
+      <div class="tags">
+        <span>
+          <span class="l-zh">緊鄰中科綠美圖</span>
+          <span class="l-en">Next to Central Taiwan Science Park</span>
+          <span class="l-pt">Ao lado do Parque Científico Central</span>
+        </span>
+        <span>
+          <span class="l-zh">逢甲商圈</span>
+          <span class="l-en">Fengjia shopping district</span>
+          <span class="l-pt">Bairro comercial de Fengjia</span>
+        </span>
+        <span>
+          <span class="l-zh">西屯老街文化</span>
+          <span class="l-en">Xitun old-street heritage</span>
+          <span class="l-pt">Cultura da rua antiga de Xitun</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">📖</div>
+        <h3>
+          <span class="l-zh">美學館・最美共讀站</span>
+          <span class="l-en">Aesthetics Hall · Reading Lounge</span>
+          <span class="l-pt">Sala de Estética · O cantinho mais bonito de leitura</span>
+        </h3>
+        <p>
+          <span class="l-zh">兼具閱讀與展覽的優雅空間，讓孩子在書本與藝術之間自由穿梭。</span>
+          <span class="l-en">An elegant space that doubles as a reading nook and art gallery—kids move freely between books and art.</span>
+          <span class="l-pt">Um espaço lindo que serve para leitura e também para exposições — as crianças circulam livremente entre os livros e a arte.</span>
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🧱</div>
+        <h3>
+          <span class="l-zh">特色課程教室</span>
+          <span class="l-en">Signature Classrooms</span>
+          <span class="l-pt">Salas dos projetos especiais</span>
+        </h3>
+        <p>
+          <span class="l-zh">積木教室與國際教室，是孩子放手實驗、與世界對話的基地。</span>
+          <span class="l-en">A block-play classroom and an international classroom—where kids experiment freely and connect with the world.</span>
+          <span class="l-pt">Temos a sala de blocos e a sala internacional — onde as crianças experimentam à vontade e conversam com o mundo.</span>
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🦋</div>
+        <h3>
+          <span class="l-zh">生態農場</span>
+          <span class="l-en">Eco Farm</span>
+          <span class="l-pt">Fazenda ecológica</span>
+        </h3>
+        <p>
+          <span class="l-zh">蝴蝶園與開心農場一起進行培育與種植課程，從泥土裡學科學。</span>
+          <span class="l-en">A butterfly garden and a happy-farm where children learn science right from the soil.</span>
+          <span class="l-pt">O borboletário e a horta funcionam juntos — as crianças aprendem ciência colocando a mão na terra mesmo.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SEE & TURN ============== -->
+<section class="see-turn">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;">
+      <span class="l-zh">校本課程核心</span>
+      <span class="l-en">Our Core Philosophy</span>
+      <span class="l-pt">A filosofia central da escola</span>
+    </div>
+    <h2 style="text-align:center;">
+      <span class="l-zh">學習就像是孩子的一場場冒險</span>
+      <span class="l-en">Learning Is Every Child's Adventure</span>
+      <span class="l-pt">Aprender é como uma série de aventuras pra cada criança</span>
+    </h2>
+    <p style="max-width:38em;margin:18px auto 0;text-align:center;">
+      <span class="l-zh">我們長期深耕科技、國際教育與在地走讀，把校本課程做成一條孩子可以一直傳承下去的路。</span>
+      <span class="l-en">For years we've been cultivating technology, international education, and place-based learning—shaping a school-wide curriculum kids can pass on.</span>
+      <span class="l-pt">Há anos a gente vem cultivando tecnologia, educação internacional e estudos do meio — montando um currículo que as crianças podem passar adiante.</span>
+    </p>
+
+    <div class="st-words">
+      <div class="st-word">SEE<span class="sub">
+        <span class="l-zh">看見</span>
+        <span class="l-en">Observe</span>
+        <span class="l-pt">Ver / Enxergar</span>
+      </span></div>
+      <div class="st-amp">&amp;</div>
+      <div class="st-word">TURN<span class="sub">
+        <span class="l-zh">實踐</span>
+        <span class="l-en">Act</span>
+        <span class="l-pt">Agir / Praticar</span>
+      </span></div>
+    </div>
+
+    <div class="st-pair">
+      <div class="st-card">
+        <h3>
+          <span class="l-zh">學生興趣驅動</span>
+          <span class="l-en">Student-Interest Driven</span>
+          <span class="l-pt">A curiosidade da criança em primeiro lugar</span>
+        </h3>
+        <p>
+          <span class="l-zh">老師長期觀察幼兒對積木建構與路徑規劃的高度動機，從興趣出發，學習就自然發生。</span>
+          <span class="l-en">Teachers have long observed how deeply children engage with block-building and path-planning—when learning starts from interest, it just happens naturally.</span>
+          <span class="l-pt">As professoras observam há muito tempo como as crianças se envolvem com blocos e com a montagem de trajetos — quando o aprendizado parte do interesse delas, ele acontece por si.</span>
+        </p>
+      </div>
+      <div class="st-card">
+        <h3>
+          <span class="l-zh">生活空間連結</span>
+          <span class="l-en">Connected to Daily Spaces</span>
+          <span class="l-pt">Conectado ao dia a dia delas</span>
+        </h3>
+        <p>
+          <span class="l-zh">結合幼兒最熟悉的校園與社區空間，降低抽象編程與科技學習的門檻，讓孩子先在熟悉中學會探索。</span>
+          <span class="l-en">By rooting lessons in the campus and neighborhood the children already know, we lower the barrier to abstract topics like coding and technology.</span>
+          <span class="l-pt">Ao usar o próprio campus e o bairro que elas já conhecem, a gente derruba a barreira de assuntos abstratos como programação e tecnologia.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PILLARS ============== -->
+<section class="pillars">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span class="l-zh">校本課程四大支柱</span>
+      <span class="l-en">Four Pillars of Our Curriculum</span>
+      <span class="l-pt">Os quatro pilares do nosso currículo</span>
+    </div>
+    <h2>
+      <span class="l-zh">閱讀・國際・科技・美感</span>
+      <span class="l-en">Reading · International · Technology · Aesthetics</span>
+      <span class="l-pt">Leitura · Internacional · Tecnologia · Estética</span>
+    </h2>
+    <p style="max-width:36em;">
+      <span class="l-zh">這四個面向不是各自獨立的學科，而是一個整體 — 孩子在閱讀中看世界、在國際中認識自己、在科技裡發揮想像、在美感裡學會感受。</span>
+      <span class="l-en">These aren't four separate subjects—they're one fabric. Kids see the world through reading, find themselves through international exchange, imagine through tech, and learn to feel through aesthetics.</span>
+      <span class="l-pt">Esses quatro pilares não são disciplinas separadas — são um tecido só. A criança vê o mundo pela leitura, se descobre nas trocas internacionais, imagina com tecnologia e aprende a sentir através da estética.</span>
+    </p>
+
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h3>
+          <span class="l-zh">閱讀</span>
+          <span class="l-en">Reading</span>
+          <span class="l-pt">Leitura</span>
+        </h3>
+        <span class="sub">Reading Education</span>
+        <p>
+          <span class="l-zh">從共讀站到圖書館，閱讀是孩子最早的世界門票。</span>
+          <span class="l-en">From the reading lounge to the library, reading is a child's first passport.</span>
+          <span class="l-pt">Da nossa sala de leitura à biblioteca: ler é o primeiro passaporte da criança pro mundo.</span>
+        </p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h3>
+          <span class="l-zh">國際教育</span>
+          <span class="l-en">International</span>
+          <span class="l-pt">Internacional</span>
+        </h3>
+        <span class="sub">International Education</span>
+        <p>
+          <span class="l-zh">與世界對話，從家門口出發。</span>
+          <span class="l-en">A dialogue with the world that begins right at our doorstep.</span>
+          <span class="l-pt">Um diálogo com o mundo que começa bem na nossa porta.</span>
+        </p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h3>
+          <span class="l-zh">科技</span>
+          <span class="l-en">Technology</span>
+          <span class="l-pt">Tecnologia</span>
+        </h3>
+        <span class="sub">Technology Education</span>
+        <p>
+          <span class="l-zh">從積木與路徑規劃，走向 STEAM 與未來。</span>
+          <span class="l-en">From blocks and path-planning to STEAM and the future.</span>
+          <span class="l-pt">Dos blocos e dos trajetos até o STEAM e o futuro.</span>
+        </p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">04</div>
+        <h3>
+          <span class="l-zh">美感</span>
+          <span class="l-en">Aesthetics</span>
+          <span class="l-pt">Estética</span>
+        </h3>
+        <span class="sub">Aesthetic Education</span>
+        <p>
+          <span class="l-zh">用感官去感覺世界、用作品去回應世界。</span>
+          <span class="l-en">Sensing the world, responding to it through creation.</span>
+          <span class="l-pt">Sentir o mundo pelos sentidos e responder a ele criando.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== DEPARTMENTS ============== -->
+<section class="depts">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span class="l-zh">處室介紹</span>
+      <span class="l-en">Our Divisions</span>
+      <span class="l-pt">Nossas coordenações</span>
+    </div>
+    <h2 style="margin-bottom:36px;">
+      <span class="l-zh">五個處室，一個團隊</span>
+      <span class="l-en">Five Divisions, One Team</span>
+      <span class="l-pt">Cinco coordenações, um time só</span>
+    </h2>
+
+    <!-- 教務處 -->
+    <div class="dept">
+      <div class="dept-head">
+        <h3>
+          <span class="l-zh">教務處</span>
+          <span class="l-en">Academic Affairs</span>
+          <span class="l-pt">Coordenação Pedagógica</span>
+        </h3>
+        <span class="en-name">
+          <span class="l-zh">Academic Affairs</span>
+          <span class="l-en">Curriculum &amp; Instruction</span>
+          <span class="l-pt">Currículo e ensino</span>
+        </span>
+      </div>
+      <div class="dept-tags">
+        <span class="dept-tag accent">
+          <span class="l-zh">國際西屯</span>
+          <span class="l-en">Global Situn</span>
+          <span class="l-pt">Situn Global</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">科技西屯</span>
+          <span class="l-en">Tech Situn</span>
+          <span class="l-pt">Situn Tech</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">美感西屯</span>
+          <span class="l-en">Aesthetic Situn</span>
+          <span class="l-pt">Situn Estética</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">閱讀西屯</span>
+          <span class="l-en">Reading Situn</span>
+          <span class="l-pt">Situn Leitora</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">生態西屯</span>
+          <span class="l-en">Eco Situn</span>
+          <span class="l-pt">Situn Ecológica</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- 學務處 -->
+    <div class="dept">
+      <div class="dept-head">
+        <h3>
+          <span class="l-zh">學務處</span>
+          <span class="l-en">Student Affairs</span>
+          <span class="l-pt">Vida Escolar</span>
+        </h3>
+        <span class="en-name">
+          <span class="l-zh">Student Affairs</span>
+          <span class="l-en">Activities &amp; Student Life</span>
+          <span class="l-pt">Atividades e vida do aluno</span>
+        </span>
+      </div>
+      <div class="dept-tags">
+        <span class="dept-tag accent">
+          <span class="l-zh">優質團隊</span>
+          <span class="l-en">Top Teams</span>
+          <span class="l-pt">Times de qualidade</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">多樣化社團</span>
+          <span class="l-en">Diverse Clubs</span>
+          <span class="l-pt">Diversidade de clubes</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">直笛團・躲避球隊・足球・排球</span>
+          <span class="l-en">Recorder · Dodgeball · Soccer · Volleyball</span>
+          <span class="l-pt">Flauta · Queimada · Futebol · Vôlei</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">校內活動</span>
+          <span class="l-en">School-wide Events</span>
+          <span class="l-pt">Eventos da escola</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">與校長有約・戶外教育・街頭藝人</span>
+          <span class="l-en">Chats with the Principal · Outdoor Ed · Street Performers</span>
+          <span class="l-pt">Bate-papo com o diretor · Educação ao ar livre · Artistas de rua</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- 總務處 -->
+    <div class="dept">
+      <div class="dept-head">
+        <h3>
+          <span class="l-zh">總務處</span>
+          <span class="l-en">General Affairs</span>
+          <span class="l-pt">Administração Geral</span>
+        </h3>
+        <span class="en-name">
+          <span class="l-zh">General Affairs</span>
+          <span class="l-en">Campus &amp; International</span>
+          <span class="l-pt">Infraestrutura e internacional</span>
+        </span>
+      </div>
+      <div class="dept-tags">
+        <span class="dept-tag accent">
+          <span class="l-zh">優質校園環境・五星級如廁品質</span>
+          <span class="l-en">Quality Campus · 5-Star Restrooms</span>
+          <span class="l-pt">Campus de qualidade · Banheiros nota 10</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">IE 國際教育班・課後 ESL 沉浸式英語</span>
+          <span class="l-en">IE International Classes · After-school ESL Immersion</span>
+          <span class="l-pt">Turmas IE internacionais · Imersão em inglês no contraturno</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">學校國際化-進階學校</span>
+          <span class="l-en">Advanced Internationalization</span>
+          <span class="l-pt">Escola com internacionalização avançada</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">全市第一間開辦接待家庭的小學</span>
+          <span class="l-en">First elementary in Taichung to host homestay students</span>
+          <span class="l-pt">A primeira escola primária de Taichung a receber alunos em famílias anfitriãs</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">雙語學校</span>
+          <span class="l-en">Bilingual School</span>
+          <span class="l-pt">Escola bilíngue</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- 輔導室 -->
+    <div class="dept">
+      <div class="dept-head">
+        <h3>
+          <span class="l-zh">輔導室</span>
+          <span class="l-en">Counseling Office</span>
+          <span class="l-pt">Orientação Educacional</span>
+        </h3>
+        <span class="en-name">
+          <span class="l-zh">Counseling</span>
+          <span class="l-en">Care &amp; Guidance</span>
+          <span class="l-pt">Cuidado e acolhimento</span>
+        </span>
+      </div>
+      <div class="dept-tags">
+        <span class="dept-tag accent">
+          <span class="l-zh">小一迎新・薪火相傳</span>
+          <span class="l-en">1st-Grade Welcome · Passing the Torch</span>
+          <span class="l-pt">Acolhida do 1º ano · Passagem do bastão</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">融合教育・學習扶助</span>
+          <span class="l-en">Inclusive Ed · Learning Support</span>
+          <span class="l-pt">Educação inclusiva · Reforço pedagógico</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">特殊教育・專業輔導</span>
+          <span class="l-en">Special Ed · Professional Counseling</span>
+          <span class="l-pt">Educação especial · Acompanhamento profissional</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">家長日 IEP・親職教育</span>
+          <span class="l-en">Parents' Day IEP · Parent Education</span>
+          <span class="l-pt">Reunião de pais (PEI) · Educação parental</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">教師節・母親節・聖誕節報佳音</span>
+          <span class="l-en">Teachers' Day · Mother's Day · Christmas Caroling</span>
+          <span class="l-pt">Dia do Professor · Dia das Mães · Cantata de Natal</span>
+        </span>
+        <span class="dept-tag">
+          <span class="l-zh">性平・生命・多元文化教育</span>
+          <span class="l-en">Gender Equity · Life Ed · Multicultural Ed</span>
+          <span class="l-pt">Equidade de gênero · Educação para a vida · Multiculturalidade</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== KINDERGARTEN ============== -->
+<section class="kg">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span class="l-zh">幼兒園</span>
+      <span class="l-en">Our Kindergarten</span>
+      <span class="l-pt">Nossa Educação Infantil</span>
+    </div>
+    <h2>
+      <span class="l-zh">以幼兒為主體・全人發展為核心</span>
+      <span class="l-en">Child at the Center · Whole-Person Development at the Core</span>
+      <span class="l-pt">A criança no centro · O desenvolvimento integral no coração</span>
+    </h2>
+
+    <div class="kg-intro mt-md">
+      <p>
+        <span class="l-zh">幼兒園課綱以幼兒為主體與全人發展為核心，強調「生活即課程，遊戲即學習」。透過身體動作與健康、認知、語文、社會、情緒、美感等六大領域的融合，引導孩子在生活中探索，進而培養帶得走的核心素養能力。</span>
+        <span class="l-en">Our kindergarten curriculum places the child at the center, with whole-person development at its core—where "living is the curriculum, and play is learning." Through the integration of six domains (movement &amp; health, cognition, language, social, emotional, aesthetic), we guide children to explore through everyday life and build competencies they carry for life.</span>
+        <span class="l-pt">Nossa Educação Infantil coloca a criança no centro e o desenvolvimento integral no coração — aqui, "viver é o currículo e brincar é aprender". A partir da integração de seis grandes áreas (movimento e saúde, cognição, linguagem, social, emocional e estética), a gente convida as crianças a explorar o dia a dia e a desenvolver competências pra vida toda.</span>
+      </p>
+    </div>
+
+    <h3 style="text-align:center;font-size:1.3rem;margin:30px 0 20px;">
+      <span class="l-zh">五大核心面向</span>
+      <span class="l-en">Five Core Focus Areas</span>
+      <span class="l-pt">As cinco grandes frentes</span>
+    </h3>
+
+    <div class="kg-areas">
+      <div class="kg-area">
+        <div class="kg-area-emoji">🏃</div>
+        <h3>
+          <span class="l-zh">大肌肉活動</span>
+          <span class="l-en">Gross Motor Skills</span>
+          <span class="l-pt">Coordenação motora ampla</span>
+        </h3>
+        <span class="en">Gross motor skills development</span>
+      </div>
+      <div class="kg-area">
+        <div class="kg-area-emoji">🧩</div>
+        <h3>
+          <span class="l-zh">學習區課程模式</span>
+          <span class="l-en">Learning Areas</span>
+          <span class="l-pt">Cantinhos de aprendizagem</span>
+        </h3>
+        <span class="en">Learning Area model</span>
+      </div>
+      <div class="kg-area">
+        <div class="kg-area-emoji">🌍</div>
+        <h3>
+          <span class="l-zh">國際與多元文化</span>
+          <span class="l-en">International &amp; Multicultural</span>
+          <span class="l-pt">Internacional e multicultural</span>
+        </h3>
+        <span class="en">Multicultural education</span>
+      </div>
+      <div class="kg-area">
+        <div class="kg-area-emoji">🔬</div>
+        <h3>
+          <span class="l-zh">STEAM 課程</span>
+          <span class="l-en">STEAM Curriculum</span>
+          <span class="l-pt">Currículo STEAM</span>
+        </h3>
+        <span class="en">Science · Tech · Engineer · Art · Math</span>
+      </div>
+      <div class="kg-area">
+        <div class="kg-area-emoji">🚶</div>
+        <h3>
+          <span class="l-zh">在地文化走讀</span>
+          <span class="l-en">Local Culture Walks</span>
+          <span class="l-pt">Estudos do meio (cultura local)</span>
+        </h3>
+        <span class="en">Local culture walking tour</span>
+      </div>
+    </div>
+
+    <!-- Core philosophy -->
+    <div style="margin-top:50px;background:white;border-radius:24px;padding:36px;border:1px solid var(--line);">
+      <h3 style="font-size:1.4rem;margin-bottom:18px;">
+        <span class="l-zh">本園課程核心理念</span>
+        <span class="l-en">Our Kindergarten's Core Philosophy</span>
+        <span class="l-pt">A filosofia central da nossa Educação Infantil</span>
+      </h3>
+      <p>
+        <span class="l-zh">以幼兒為主體，覺察情緒，結合生活化的自然季節課程與學習區活動，融入 STEAM 探究與英語表達，讓孩子在遊戲中探索世界、表達自我，並建立與他人及環境之間的連結與感受。</span>
+        <span class="l-en">With the child as subject, we cultivate emotional awareness through seasonal, life-based curriculum and learning-area activities, integrating STEAM inquiry and English expression so children can explore the world through play, express themselves, and build connections with others and the environment.</span>
+        <span class="l-pt">Com a criança no centro, a gente trabalha a percepção das emoções por meio de um currículo que segue o ritmo das estações e da vida real, combinado com os cantinhos de aprendizagem. Aí entra a investigação STEAM e a expressão em inglês — pra que as crianças explorem o mundo brincando, se expressem e criem vínculo com as pessoas e com o ambiente ao redor.</span>
+      </p>
+
+      <ul class="text-list">
+        <li>
+          <span class="l-zh"><b>生活經驗：</b>以幼兒為主體，從每天真實發生的事情出發。</span>
+          <span class="l-en"><b>Real-life experience:</b> rooted in the child, starting from what really happens each day.</span>
+          <span class="l-pt"><b>Experiência de vida:</b> a criança no centro, partindo do que acontece de verdade no dia a dia.</span>
+        </li>
+        <li>
+          <span class="l-zh"><b>學習區課程探究：</b>建構／實驗／扮演，從動手做開始。</span>
+          <span class="l-en"><b>Learning-area inquiry:</b> building, experimenting, pretending—starting with hands-on doing.</span>
+          <span class="l-pt"><b>Investigação nos cantinhos:</b> construir, experimentar, faz-de-conta — começa sempre colocando a mão na massa.</span>
+        </li>
+        <li>
+          <span class="l-zh"><b>表達與分享：</b>透過扮演情境增加互動，把感覺說出來、演出來。</span>
+          <span class="l-en"><b>Expression &amp; sharing:</b> dramatic play deepens interaction—voicing and acting out feelings.</span>
+          <span class="l-pt"><b>Expressão e compartilhamento:</b> o faz-de-conta amplia as interações — falar e encenar o que sentem.</span>
+        </li>
+        <li>
+          <span class="l-zh"><b>五感體驗鼓勵提問：</b>STEAM 探究精神，從問問題開始。</span>
+          <span class="l-en"><b>Sensory experience invites questions:</b> the STEAM spirit begins with curiosity.</span>
+          <span class="l-pt"><b>Experiência sensorial que estimula a perguntar:</b> o espírito STEAM começa com a curiosidade.</span>
+        </li>
+        <li>
+          <span class="l-zh"><b>英語融入情境：</b>英語是「表達與溝通的工具」，自然出現在一日作息裡。</span>
+          <span class="l-en"><b>English in context:</b> English is "a tool for expression and communication," woven naturally into the daily routine.</span>
+          <span class="l-pt"><b>Inglês no contexto:</b> o inglês é "ferramenta de expressão e comunicação", aparecendo naturalmente na rotina do dia.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============== LEARNING CORNERS ============== -->
+<section>
+  <div class="wrap">
+    <div class="corners-header">
+      <div class="eyebrow" style="justify-content:center;">
+        <span class="l-zh">學習區課程活動</span>
+        <span class="l-en">Learning Areas in Practice</span>
+        <span class="l-pt">Os cantinhos na prática</span>
+      </div>
+      <h2>
+        <span class="l-zh">教室就是孩子的第三位老師</span>
+        <span class="l-en">The Classroom Is the Child's Third Teacher</span>
+        <span class="l-pt">A sala é o terceiro professor da criança</span>
+      </h2>
+      <p style="max-width:42em;margin:18px auto 0;">
+        <span class="l-zh">學習區是具教育目的的系統化規劃，核心在於提供自主選擇權以培養獨立性；透過實體材料讓幼兒感官探索與動手做；設計具鷹架功能的層次材料以因應個別差異；並透過跨區互動，達到統整性學習的教育目標。</span>
+        <span class="l-en">Learning areas are purposeful, systemic designs. At their core: offering children autonomy of choice to nurture independence; using real materials for sensory exploration and hands-on learning; layering scaffolded materials to meet individual differences; and connecting areas to enable integrated learning.</span>
+        <span class="l-pt">Os cantinhos não são improvisos — eles são planejados com intenção pedagógica. A ideia central é: dar autonomia de escolha pra criança crescer independente; oferecer materiais concretos pra ela explorar com os sentidos e colocar a mão na massa; preparar materiais em diferentes níveis de "andaime" pra atender as diferenças de cada um; e conectar os cantinhos entre si pra um aprendizado integrado.</span>
+      </p>
+    </div>
+
+    <div class="corners">
+      <div class="corner">
+        <h3>
+          <span class="l-zh">積木區　<small style="font-weight:400;color:var(--ink-soft);">Block Area</small></span>
+          <span class="l-en">Block Area</span>
+          <span class="l-pt">Cantinho dos blocos</span>
+        </h3>
+        <ul>
+          <li>
+            <span class="l-zh">單位積木</span>
+            <span class="l-en">Unit blocks</span>
+            <span class="l-pt">Blocos unitários</span>
+          </li>
+          <li>
+            <span class="l-zh">Kapla 積木</span>
+            <span class="l-en">Kapla blocks</span>
+            <span class="l-pt">Blocos Kapla</span>
+          </li>
+          <li>
+            <span class="l-zh">鬆散素材搭建</span>
+            <span class="l-en">Loose-parts building</span>
+            <span class="l-pt">Construções com materiais soltos</span>
+          </li>
+          <li>
+            <span class="l-zh">彩窗積木</span>
+            <span class="l-en">Stained-glass blocks</span>
+            <span class="l-pt">Blocos translúcidos coloridos</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="corner">
+        <h3>
+          <span class="l-zh">扮演區　<small style="font-weight:400;color:var(--ink-soft);">Dramatic Area</small></span>
+          <span class="l-en">Dramatic Play</span>
+          <span class="l-pt">Cantinho do faz-de-conta</span>
+        </h3>
+        <ul>
+          <li>
+            <span class="l-zh">烹飪區</span>
+            <span class="l-en">Cooking nook</span>
+            <span class="l-pt">Cozinha de brinquedo</span>
+          </li>
+          <li>
+            <span class="l-zh">裝扮區</span>
+            <span class="l-en">Dress-up</span>
+            <span class="l-pt">Fantasias</span>
+          </li>
+          <li>
+            <span class="l-zh">音樂律動區</span>
+            <span class="l-en">Music &amp; movement</span>
+            <span class="l-pt">Música e movimento</span>
+          </li>
+          <li>
+            <span class="l-zh">生活自理區</span>
+            <span class="l-en">Self-care area</span>
+            <span class="l-pt">Cuidados pessoais</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="corner">
+        <h3>
+          <span class="l-zh">美勞區　<small style="font-weight:400;color:var(--ink-soft);">Art Area</small></span>
+          <span class="l-en">Art Area</span>
+          <span class="l-pt">Cantinho de artes</span>
+        </h3>
+        <ul>
+          <li>
+            <span class="l-zh">陶土・黏土區</span>
+            <span class="l-en">Clay &amp; playdough</span>
+            <span class="l-pt">Argila e massinha</span>
+          </li>
+          <li>
+            <span class="l-zh">紙工區</span>
+            <span class="l-en">Paper crafts</span>
+            <span class="l-pt">Trabalhos com papel</span>
+          </li>
+          <li>
+            <span class="l-zh">縫工編織區</span>
+            <span class="l-en">Sewing &amp; weaving</span>
+            <span class="l-pt">Costura e tecelagem</span>
+          </li>
+          <li>
+            <span class="l-zh">水彩・繪畫區</span>
+            <span class="l-en">Watercolor &amp; painting</span>
+            <span class="l-pt">Aquarela e pintura</span>
+          </li>
+          <li>
+            <span class="l-zh">多元素材創作・鬆散素材區</span>
+            <span class="l-en">Mixed-media &amp; loose parts</span>
+            <span class="l-pt">Materiais variados e soltos</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="corner">
+        <h3>
+          <span class="l-zh">語文區　<small style="font-weight:400;color:var(--ink-soft);">Literacy Area</small></span>
+          <span class="l-en">Literacy Area</span>
+          <span class="l-pt">Cantinho da linguagem</span>
+        </h3>
+        <ul>
+          <li>
+            <span class="l-zh">閱讀區</span>
+            <span class="l-en">Reading nook</span>
+            <span class="l-pt">Espaço de leitura</span>
+          </li>
+          <li>
+            <span class="l-zh">聽區</span>
+            <span class="l-en">Listening corner</span>
+            <span class="l-pt">Cantinho de escuta</span>
+          </li>
+          <li>
+            <span class="l-zh">說演故事區</span>
+            <span class="l-en">Storytelling stage</span>
+            <span class="l-pt">Hora do conto</span>
+          </li>
+          <li>
+            <span class="l-zh">語文桌遊區</span>
+            <span class="l-en">Language board games</span>
+            <span class="l-pt">Jogos de mesa de linguagem</span>
+          </li>
+          <li>
+            <span class="l-zh">書寫桌</span>
+            <span class="l-en">Writing table</span>
+            <span class="l-pt">Mesa de escrita</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="corner">
+        <h3>
+          <span class="l-zh">數學區　<small style="font-weight:400;color:var(--ink-soft);">Math Area</small></span>
+          <span class="l-en">Math Area</span>
+          <span class="l-pt">Cantinho da matemática</span>
+        </h3>
+        <ul>
+          <li>
+            <span class="l-zh">數學工作盤</span>
+            <span class="l-en">Math work trays</span>
+            <span class="l-pt">Bandejas de matemática</span>
+          </li>
+          <li>
+            <span class="l-zh">拼圖區</span>
+            <span class="l-en">Puzzles</span>
+            <span class="l-pt">Quebra-cabeças</span>
+          </li>
+          <li>
+            <span class="l-zh">棋類區</span>
+            <span class="l-en">Board games</span>
+            <span class="l-pt">Jogos de tabuleiro</span>
+          </li>
+          <li>
+            <span class="l-zh">六形六色區</span>
+            <span class="l-en">Shape &amp; color sorting</span>
+            <span class="l-pt">Formas e cores</span>
+          </li>
+          <li>
+            <span class="l-zh">數學桌遊區</span>
+            <span class="l-en">Math card &amp; board games</span>
+            <span class="l-pt">Jogos matemáticos</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="corner">
+        <h3>
+          <span class="l-zh">組合建構區　<small style="font-weight:400;color:var(--ink-soft);">Construction</small></span>
+          <span class="l-en">Construction Area</span>
+          <span class="l-pt">Cantinho de montagem</span>
+        </h3>
+        <ul>
+          <li>
+            <span class="l-zh">方塊積木</span>
+            <span class="l-en">Cube blocks</span>
+            <span class="l-pt">Blocos cúbicos</span>
+          </li>
+          <li>
+            <span class="l-zh">GIGO 綠能動力車</span>
+            <span class="l-en">GIGO green-energy vehicles</span>
+            <span class="l-pt">Carrinhos GIGO de energia verde</span>
+          </li>
+          <li>
+            <span class="l-zh">GIGO 編程機器人</span>
+            <span class="l-en">GIGO coding robots</span>
+            <span class="l-pt">Robôs de programação GIGO</span>
+          </li>
+          <li>
+            <span class="l-zh">LAQ・LAGO・加加積木</span>
+            <span class="l-en">LAQ · LAGO · Jiajia blocks</span>
+            <span class="l-pt">Blocos LAQ · LAGO · Jiajia</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="margin-top:36px;text-align:center;font-style:italic;color:var(--green-deep);font-size:1.05rem;">
+      <span class="l-zh">「環境是第三位老師。」</span>
+      <span class="l-en">"The environment is the third teacher."</span>
+      <span class="l-pt">"O ambiente é o terceiro professor."</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============== STEAM ============== -->
+<section class="steam">
+  <div class="wrap" style="text-align:center;">
+    <div class="eyebrow" style="justify-content:center;">
+      <span class="l-zh">STEAM CLASS of SITUN 2040</span>
+      <span class="l-en">STEAM CLASS of SITUN 2040</span>
+      <span class="l-pt">Aula STEAM Situn 2040</span>
+    </div>
+    <h2>
+      <span class="l-zh">面向 2040 的孩子，從現在開始</span>
+      <span class="l-en">Preparing 2040's Children, Starting Now</span>
+      <span class="l-pt">Preparando as crianças de 2040, começando agora</span>
+    </h2>
+
+    <div class="steam-petals">
+      <div class="petal s">S<small>
+        <span class="l-zh">科學 Science</span>
+        <span class="l-en">Science</span>
+        <span class="l-pt">Ciência</span>
+      </small></div>
+      <div class="petal t">T<small>
+        <span class="l-zh">科技 Technology</span>
+        <span class="l-en">Technology</span>
+        <span class="l-pt">Tecnologia</span>
+      </small></div>
+      <div class="petal e">E<small>
+        <span class="l-zh">工程 Engineering</span>
+        <span class="l-en">Engineering</span>
+        <span class="l-pt">Engenharia</span>
+      </small></div>
+      <div class="petal a">A<small>
+        <span class="l-zh">藝術 Art</span>
+        <span class="l-en">Art</span>
+        <span class="l-pt">Arte</span>
+      </small></div>
+      <div class="petal m">M<small>
+        <span class="l-zh">數學 Mathematics</span>
+        <span class="l-en">Mathematics</span>
+        <span class="l-pt">Matemática</span>
+      </small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== LANGUAGE IMMERSION ============== -->
+<section style="background:var(--paper);">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span class="l-zh">英語沉浸學習</span>
+      <span class="l-en">Language Immersion</span>
+      <span class="l-pt">Imersão em inglês</span>
+    </div>
+    <h2>
+      <span class="l-zh">以幼兒為中心的「玩中學」語言環境</span>
+      <span class="l-en">A Child-Centered, Play-Based Language Environment</span>
+      <span class="l-pt">Um ambiente de aprender brincando, com a criança no centro</span>
+    </h2>
+    <p style="max-width:42em;">
+      <span class="l-zh">在點名、大肌肉活動、轉銜時間裡，英語自然出現；歌謠與繪本讓孩子從聽到說，再進到表達自己。</span>
+      <span class="l-en">English shows up naturally—during morning roll call, gross-motor time, transitions—through songs and picture books that take children from listening to speaking, all the way to self-expression.</span>
+      <span class="l-pt">O inglês aparece naturalmente — na chamada da manhã, na hora do movimento, nas transições — através de cantigas e livros de imagem, que levam a criança do ouvir ao falar e, depois, ao expressar de verdade o que sente.</span>
+    </p>
+
+    <div class="corners mt-md">
+      <div class="corner">
+        <h3>
+          <span class="l-zh">① 建立基礎</span>
+          <span class="l-en">① Build the Foundation</span>
+          <span class="l-pt">① Construir a base</span>
+        </h3>
+        <p>
+          <span class="l-zh">在日常用語中接觸英語。目標：讓孩子「聽得懂、敢模仿、願意跟著說」。</span>
+          <span class="l-en">Encounter English in daily phrases. Goal: kids who "understand, dare to mimic, and want to repeat."</span>
+          <span class="l-pt">Encontrar o inglês nas frases do dia a dia. Objetivo: criança que "entende, se anima a imitar e topa repetir".</span>
+        </p>
+      </div>
+      <div class="corner">
+        <h3>
+          <span class="l-zh">② 擴展情境</span>
+          <span class="l-en">② Expand the Context</span>
+          <span class="l-pt">② Ampliar o contexto</span>
+        </h3>
+        <p>
+          <span class="l-zh">從一日作息延伸到歌謠與繪本故事。目標：在遊戲中「自然用英語表達」。</span>
+          <span class="l-en">Extending from daily routines into songs and picture-book stories. Goal: expressing in English naturally, through play.</span>
+          <span class="l-pt">Da rotina diária pras cantigas e histórias com livros ilustrados. Objetivo: se expressar em inglês de forma natural, brincando.</span>
+        </p>
+      </div>
+      <div class="corner">
+        <h3>
+          <span class="l-zh">③ 深化運用</span>
+          <span class="l-en">③ Deepen Use</span>
+          <span class="l-pt">③ Aprofundar o uso</span>
+        </h3>
+        <p>
+          <span class="l-zh">繪本語句 → 歌謠 → 說演故事（肢體說演、光影說演、物品劇場說演）。目標：「在情境中使用→ 理解語句 → 能自發表達」。</span>
+          <span class="l-en">Book phrases → songs → storytelling (body, shadow, object theater). Goal: "use in context → understand → speak spontaneously."</span>
+          <span class="l-pt">Frases dos livros → cantigas → contação de histórias (com corpo, sombra ou objetos). Objetivo: "usar no contexto → entender → falar de forma espontânea".</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SEL ============== -->
+<section class="sel">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span class="l-zh">情緒覺察・社會情緒學習</span>
+      <span class="l-en">Social-Emotional Learning</span>
+      <span class="l-pt">Aprendizagem socioemocional</span>
+    </div>
+    <h2>
+      <span class="l-zh">從晨間活動開始的情緒覺察</span>
+      <span class="l-en">Emotional Awareness Begins at Morning Time</span>
+      <span class="l-pt">A consciência emocional começa logo cedo, no início do dia</span>
+    </h2>
+    <p style="max-width:42em;">
+      <span class="l-zh">三個班級皆以「一日作息 × 遊戲」為方式，共同以情緒覺察、日常互動與自然探索為設計軸心，但依班級特色，發展不同的語言學習情境，創造出情緒與語言的學習連結。</span>
+      <span class="l-en">All three classrooms work through "daily routine × play," anchored in emotional awareness, everyday interactions, and exploration of nature—each classroom developing its own language-learning context, weaving emotions and language together.</span>
+      <span class="l-pt">As três turmas trabalham com "rotina diária × brincadeira", ancoradas na consciência emocional, nas interações do dia a dia e na exploração da natureza — mas cada turma cria seu próprio contexto de aprendizagem da língua, costurando juntinhos a emoção e a linguagem.</span>
+    </p>
+
+    <div class="sel-grid">
+      <div class="sel-card">
+        <div class="num">1</div>
+        <h3>
+          <span class="l-zh">自我覺察</span>
+          <span class="l-en">Self-Awareness</span>
+          <span class="l-pt">Autoconsciência</span>
+        </h3>
+        <p>
+          <span class="l-zh">辨識並命名自己的情緒。</span>
+          <span class="l-en">Recognizing and naming one's own feelings.</span>
+          <span class="l-pt">Reconhecer e dar nome ao que está sentindo.</span>
+        </p>
+      </div>
+      <div class="sel-card">
+        <div class="num">2</div>
+        <h3>
+          <span class="l-zh">自我管理</span>
+          <span class="l-en">Self-Management</span>
+          <span class="l-pt">Autogestão</span>
+        </h3>
+        <p>
+          <span class="l-zh">學習調節情緒、安頓自己。</span>
+          <span class="l-en">Learning to regulate emotions and settle the self.</span>
+          <span class="l-pt">Aprender a regular as emoções e a se acalmar.</span>
+        </p>
+      </div>
+      <div class="sel-card">
+        <div class="num">3</div>
+        <h3>
+          <span class="l-zh">社會覺察</span>
+          <span class="l-en">Social Awareness</span>
+          <span class="l-pt">Consciência social</span>
+        </h3>
+        <p>
+          <span class="l-zh">看見他人的情緒與需要。</span>
+          <span class="l-en">Noticing others' emotions and needs.</span>
+          <span class="l-pt">Perceber as emoções e necessidades das outras pessoas.</span>
+        </p>
+      </div>
+      <div class="sel-card">
+        <div class="num">4</div>
+        <h3>
+          <span class="l-zh">人際關係技巧</span>
+          <span class="l-en">Relationship Skills</span>
+          <span class="l-pt">Habilidades de relacionamento</span>
+        </h3>
+        <p>
+          <span class="l-zh">與他人合作、溝通、共處。</span>
+          <span class="l-en">Cooperating, communicating, and being together.</span>
+          <span class="l-pt">Cooperar, conversar e conviver com o outro.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== THANK YOU ============== -->
+<section class="thanks">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;color:var(--yellow);">
+      <span class="l-zh">感謝您的蒞臨</span>
+      <span class="l-en">Thank you for visiting</span>
+      <span class="l-pt">Muito obrigado pela visita</span>
+    </div>
+    <h2>
+      <span class="l-zh">期待今天的相遇，<br>成為下一段旅程的開始。</span>
+      <span class="l-en">May today's meeting<br>become the start of the next journey.</span>
+      <span class="l-pt">Que o nosso encontro de hoje<br>seja o início de uma próxima jornada juntos.</span>
+    </h2>
+    <p style="color:rgba(255,255,255,.75);max-width:36em;margin:24px auto 0;">
+      <span class="l-zh">謝謝巴西教育聯盟與惠文高中的朋友們，謝謝你們漂洋過海，把對教育的熱情帶到西屯。我們會一直記得這一天。</span>
+      <span class="l-en">Thank you to our friends from the Brazilian Education Alliance and Huiwen High School—thank you for crossing oceans to bring your passion for education to Situn. We'll always remember this day.</span>
+      <span class="l-pt">Muito obrigado aos amigos da Aliança Educacional Brasileira e do Colégio Huiwen — vocês atravessaram o oceano pra trazer essa paixão pela educação até a Situn. A gente vai lembrar desse dia pra sempre. Um abraço enorme!</span>
+    </p>
+    <div class="signature">
+      <span class="l-zh">— SEE &amp; TURN ・ 臺中市西屯區西屯國小</span>
+      <span class="l-en">— SEE &amp; TURN · Situn Elementary School, Taichung</span>
+      <span class="l-pt">— SEE &amp; TURN · Escola Primária Situn, Taichung</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span class="l-zh">© 2026 臺中市西屯區西屯國小　|　由校長 彭偉峰 Alex Peng 與西屯團隊呈獻</span>
+  <span class="l-en">© 2026 Situn Elementary School, Xitun, Taichung　|　Presented by Principal Alex Peng &amp; the Situn team</span>
+  <span class="l-pt">© 2026 Escola Primária Situn, Xitun, Taichung　|　Apresentação do Diretor Alex Peng e da equipe da Situn</span>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.lang-switcher button');
+  const body = document.body;
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.set;
+      body.setAttribute('data-lang', lang);
+      buttons.forEach(b => b.classList.toggle('active', b === btn));
+
+      // update <html> lang attribute for accessibility
+      const htmlLang = lang === 'zh' ? 'zh-Hant' : (lang === 'pt' ? 'pt-BR' : 'en');
+      document.documentElement.setAttribute('lang', htmlLang);
+
+      // remember choice
+      try { localStorage.setItem('situn-lang', lang); } catch(e) {}
+    });
+  });
+
+  // restore previous language choice — but only if the browser actually stored it
+  try {
+    const saved = localStorage.getItem('situn-lang');
+    if (saved && ['zh','en','pt'].includes(saved)) {
+      const target = document.querySelector(`.lang-switcher button[data-set="${saved}"]`);
+      if (target) target.click();
+    }
+  } catch(e) {}
+</script>
+
+</body>
+</html>
